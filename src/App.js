@@ -3,6 +3,8 @@ import { Form } from './Components/Form/Form';
 import { Contacts } from './Components/Contacts/Contacts';
 import { Filter } from './Components/Filter/Filter';
 import s from './App.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class App extends Component {
   state = {
@@ -30,7 +32,7 @@ export class App extends Component {
         contact => contact.name.toLowerCase() === data.name.toLowerCase(),
       )
     ) {
-      alert('error');
+      toast.error('Hey, this name always here!');
       return;
     }
 
@@ -70,6 +72,7 @@ export class App extends Component {
           contacts={visibleContacts}
           deleteFunction={this.handelDelete}
         />
+        <ToastContainer />
       </>
     );
   }
